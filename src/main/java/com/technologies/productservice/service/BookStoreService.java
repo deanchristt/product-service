@@ -1,11 +1,8 @@
 package com.technologies.productservice.service;
 
-// BookstoreService.java
-
 import com.technologies.productservice.model.entity.BookStore;
 import com.technologies.productservice.repository.BookStoreRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
