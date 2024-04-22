@@ -1,9 +1,11 @@
 package com.technologies.productservice.controller;
 
 
+import com.technologies.productservice.model.dto.BookStoreDto;
 import com.technologies.productservice.model.entity.BookStore;
 import com.technologies.productservice.service.BookStoreService;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,9 +17,11 @@ public class BookStoreController {
 
     private final BookStoreService bookstoreService;
 
+    private final ModelMapper modelMapper;
+
     @PostMapping
-    public BookStore createBookstore(@RequestBody BookStore bookstore) {
-        return bookstoreService.createBookstore(bookstore);
+    public BookStore createBookstore(@RequestBody BookStoreDto bookstore) {
+        return bookstoreService.createBookstore(modelMapper.map(bookstore, BookStore.class));
     }
 
     @GetMapping
